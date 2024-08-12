@@ -24,9 +24,13 @@ Script for enabling/disabling an automation rule via the OPNSense API.
 When enabled the rule will be enforced.
 When disabled the rule will not be enforced.
 
-Usage (*Nix): python3 opensense_rule_toggler.py [-h|--help] [-v|--version] opnsense_host uuid api_key api_secret -e|--enable|-d|--disable
+Usage (*Nix):
+python3 opensense_rule_toggler.py [-h|--help] [-v|--version] opnsense_host \
+    uuid api_key api_secret -e|--enable|-d|--disable
 
-Usage (Windows): python opensense_rule_toggler.py [-h|--help] [-v|--version] opnsense_host uuid api_key api_secret -e|--enable|-d|--disable
+Usage (Windows):
+python opensense_rule_toggler.py [-h|--help] [-v|--version] opnsense_host \
+    uuid api_key api_secret -e|--enable|-d|--disable
 
 Arguments:
     -h, --help        Show this help message and exit.
@@ -51,7 +55,7 @@ class OPNSenseError(Exception):
     pass
 
 
-class OPNSenseRuleStatus():
+class OPNSenseRuleStatus:
     """Class to represent a status for the OPNSense filter rule"""
 
     def __init__(self, status):
@@ -59,7 +63,7 @@ class OPNSenseRuleStatus():
         self.status = status
 
 
-class OPNSenseData():
+class OPNSenseData:
     """Class to contain data used to create OPNSense API requests."""
 
     # Content Type header for the API requests.
@@ -152,31 +156,31 @@ def main():
     # search for command line args, and if not provided request input from user.
     try:
         opnsense_host = sys.argv[1]
-    except IndexError as e:
+    except IndexError:
         print("OPNSense IP or FQDN: ")
         opnsense_host = input()
 
     try:
         uuid = sys.argv[2]
-    except IndexError as e:
+    except IndexError:
         print("Automation rule UUID: ")
         uuid = input()
 
     try:
         api_key = sys.argv[3]
-    except IndexError as e:
+    except IndexError:
         print("API key for OPNSense: ")
         api_key = input()
 
     try:
         api_secret = sys.argv[4]
-    except IndexError as e:
+    except IndexError:
         print("API secret for OPNSense: ")
         api_secret = input()
 
     try:
         toggle = sys.argv[5]
-    except IndexError as e:
+    except IndexError:
         print("Enable or disable automation rule (enable/disable): ")
         toggle = input()
 
@@ -193,7 +197,7 @@ def main():
 
     current_status = OPNSenseRuleStatus(get_current_status(opnsense_host, uuid, opnsense_credentials))
 
-    # if neither True or False, either we've received bad data from the API
+    # if neither True nor False, either we've received bad data from the API
     # or the JSON response data format has changed.
     if current_status.status is not True and current_status.status is not False:
         raise OPNSenseError(
@@ -218,4 +222,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

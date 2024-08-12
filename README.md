@@ -2,11 +2,11 @@
 User interaction and interface with the OPNSense API to utilize automation rules.
 
 ### Requirements:
-* Python >= 3.8
+* [Python](https://www.python.org/) >= 3.8
 * requests
-  - [Documentation](https://requests.readthedocs.io/en/latest/)
-  - [Source Code](https://github.com/psf/requests)
-  - Install: `pip install requests`
+    - [Documentation](https://requests.readthedocs.io/en/latest/)
+    - [Source Code](https://github.com/psf/requests)
+    - Install: `pip install requests`
 
 
 ### Usage (*Nix):
@@ -19,10 +19,19 @@ User interaction and interface with the OPNSense API to utilize automation rules
 
 
 ### Arguments:
-* -h, --help       Show this help message and exit.
-* -v, --version        Show program version and exit.opnsense_host
-* uuid             UUID of automation rule to be enabled/disabled.
-* api_key          API key for OPNSense.
-* api_secret       API secret for OPNSense.
-* -e, --enable     Enable automation rule in OPNSense.
-* -d, --disable    Disable automation rule in OPNSense.
+* -h, --help
+    - Show this help message and exit.
+* -v, --version
+    - Show program version and exit.
+* opnsense_host
+    - IP address or FQDN or OPNSense.
+* uuid
+    - UUID of automation rule to be enabled/disabled.
+* api_key
+    - API key for OPNSense.
+* api_secret
+    - API secret for OPNSense.
+* -e, --enable
+    - Enable automation rule in OPNSense.
+* -d, --disable
+    - Disable automation rule in OPNSense.
