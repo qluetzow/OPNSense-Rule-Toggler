@@ -13,11 +13,21 @@ User interaction and interface with the OPNSense API to utilize automation rules
 
 ### Usage (*nix):
 
-`python3 opensense_rule_toggler.py [-h|--help] [-v|--version] opnsense_host uuid api_key api_secret -e|--enable|-d|--disable`
+`python3 opensense_rule_toggler.py [-h|--help] [-v|--version] \`\
+`opnsense_host \`\
+`uuid \`\
+`api_key \`\
+`api_secret \`\
+`-e|--enable | -d|--disable`
 
 ### Usage (Windows):
 
-`python opensense_rule_toggler.py [-h|--help] [-v|--version] opnsense_host uuid api_key api_secret -e|--enable|-d|--disable`
+`python opensense_rule_toggler.py [-h|--help] [-v|--version] \`\
+`opnsense_host \`\
+`uuid \`\
+`api_key \`\
+`api_secret \`\
+`-e|--enable | -d|--disable`
 
 
 ### Arguments:
